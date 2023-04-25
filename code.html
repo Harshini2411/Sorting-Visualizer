@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords"
+            content="Sorting Bubble Select Selection Insert Insertion Merge Random Quick Counting Radix">
+
+        <!-- <meta name="csrf-token" content="xRrjVhfriSU07G42ZE5DTCkNrVfBP8Fiv8mNOSa8"> -->
+        <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+        <meta property="og:image" content="https://visualgo.net/img/png/sorting.png">
+        <title>📊 Sorting Visualizer</title>
+
+        <link rel="stylesheet" type="text/css" href="styles/drawgraph.css">
+        <link rel="stylesheet" href="styles/code.css">
+
+        <nav id="topbar">
+            <span style="margin-right: 0.25rem">
+            <a href="index.html" target="
+            ">
+                <span style="color: rgb(241, 18, 18); font-family: monospace">SORTING</span>
+                </a>
+            </span>
+            <span style="max-height: 30px">
+                <span id="title">
+                    <a id='title-Bubble' class='selected-viz'>Bubble</a>
+                    <a id='title-Selection'>Select</a>
+                    <a id='title-Insertion'>Insert</a>
+                    <a id='title-Merge'>Merge</a>
+                    <a id='title-Quick'>Quick</a>
+                    <a id='title-RandomizedQuick'>R-Quick</a>
+                    <a id='title-Counting'>Count</a>
+                    <!-- <a id='title-Radix'>Radix</a> -->
+                </span>
+            </span>
+            <span
+                style="max-height: 30px; background-color:rgb(255, 255, 255)!important; color: rgb(8, 8, 8); margin-left: auto">
+                </div>
+            </span>
+        </nav>
+        
+        <div id="dark-overlay"></div>
+        <div id="main-content-container" style="flex: 1">
+            <div id="status" class="panel">
+                <p></p>
+            </div>
+            <div id="status-hide" class="panel-hide"><img src="https://visualgo.net/img/arrow_white_right.png" alt=">"
+                    title="show/hide status panel" /></div>
+            <div id="codetrace" class="panel">
+                <p id="code1" style="padding-top: 10px;"></p>
+                <p id="code2"></p>
+                <p id="code3"></p>
+                <p id="code4"></p>
+                <p id="code5"></p>
+                <p id="code6"></p>
+                <p id="code7" style="padding-bottom: 10px;"></p>
+            </div>
+            <div id="codetrace-hide" class="panel-hide"><img src="https://visualgo.net/img/arrow_white_right.png"
+                    alt=">" title="show/hide codetrace panel" /></div>
+            <div id="left-bar"></div>
+            <div id="right-bar"></div>
+            <div id="media-controls">
+                <div id='speed-control' style="background-color: rgb(32, 6, 23); ">
+                    <div id='speed-input' style="background-color:rgb(192, 95, 111);"></div>
+                    <div id='viz-speed-value' style="background-color: rgb(153, 3, 123);">1x</div>
+                </div>
+                <span id="go-to-beginning" class="media-control-button" title="go to beginning"
+                    onclick=goToBeginning()><img src="https://visualgo.net/img/goToBeginning.png"
+                        alt="go to beginning"></span>
+                <span id="previous" class="media-control-button" title="step backward" onclick=stepBackward()><img
+                        src="https://visualgo.net/img/prevFrame.png" alt="previous frame"></span>
+                <span id="pause" class="media-control-button" title="pause" onclick=pause()><img
+                        src="https://visualgo.net/img/pause.png" alt="pause"></span>
+                <span id="play" class="media-control-button" title="play" onclick=play()><img
+                        src="https://visualgo.net/img/play.png" alt="play"></span>
+                <span id="next" class="media-control-button" title="step forward" onclick=stepForward()><img
+                        src="https://visualgo.net/img/nextFrame.png" alt="next frame"></span>
+                <span id="go-to-end" class="media-control-button" title="go to end" onclick=goToEnd()><img
+                        src="https://visualgo.net/img/goToEnd.png" alt="go to end"></span>
+                <div id="progress-bar" class="media-control-button" style="background-color: rgb(255, 157, 0);"></div>
+            </div>
+
+            <div id="sort-viz" style="background-color: rgb(68, 4, 64);">
+                <svg id="viz"></svg><br>
+                <svg id="viz-counting-sort-secondary-canvas"></svg>
+                <div id="viz-radix-sort-canvas">
+                    <span id="radix-sort-bucket-labels-collection">
+                        <span class="radix-sort-bucket-label">0</span>
+                        <span class="radix-sort-bucket-label">1</span>
+                        <span class="radix-sort-bucket-label">2</span>
+                        <span class="radix-sort-bucket-label">3</span>
+                        <span class="radix-sort-bucket-label">4</span>
+                        <span class="radix-sort-bucket-label">5</span>
+                        <span class="radix-sort-bucket-label">6</span>
+                        <span class="radix-sort-bucket-label">7</span>
+                        <span class="radix-sort-bucket-label">8</span>
+                        <span class="radix-sort-bucket-label">9</span>
+                    </span>
+                </div>
+            </div>
+            <div id="current-action" class="panel">
+                <p></p>
+            </div>
+
+            <style>
+                .create {
+                    bottom: 92px
+                }
+            </style>
+            <style>
+                .sort {
+                    bottom: 65px
+                }
+            </style>
+            <div id="actions" class="panel">
+                <p class="execAction" id="sort" onClick="sort()">Sort</p>
+            </div>
+            <div id="actions-hide" class="panel-hide"><span
+                    style="color:rgb(16, 15, 15); font-size: x-large; display: inline-block;">&gt;</span></div>
+
+
+
+            <div id="create-err" class="err" style="float: left;"></div>
+        </div>
+        <div class="sort action-menu-pullout">
+            <div id="sort-err" class="err" style="float: left;"></div>
+        </div>
+        </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/d3-force-boundary@0.0.1/dist/d3-force-boundary.min.js"></script>
+        </body>
+        <script src="scripts/code.js"></script>
+        <script src="/js/graph_library-1.0.8.js"></script>
+        <script src="scripts/color.js"></script>
+
+        <script src="https://visualgo.net/js/jquery-ui.min.js"></script>
+
+        <script src="https://visualgo.net/js/d3.min.js"></script>
+        <script src="https://visualgo.net/js/viz-1.0.6.js"></script>
+        <script src="scripts/speedControls.js"></script>
+        <script src="scripts/algorithmCode.js"></script>
+        <script src="scripts/randomArrayCreation.js"></script>
+        <script src="/js/graph_library-1.0.8.js"></script>
+
+</html>

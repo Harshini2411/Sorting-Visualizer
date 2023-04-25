@@ -1,0 +1,99 @@
+*
+{
+margin: 0;
+font-family: 'Dancing Script', cursive;
+}
+
+body{
+background-color: rgb(252, 184, 11);
+}
+
+h1{
+text-align: center;
+margin-top: 5%;
+font-size: 60px;
+}
+
+h1:hover
+{
+color: rgb(29, 117, 140);
+background-color: black;
+}
+
+a:hover
+{
+color: white;
+background-color: black;
+}
+
+.container
+{
+text-align: center;
+margin-top: 5%;
+}
+
+.con{
+font-size: 24px;
+padding: 100px;
+width: 100%;
+border: 2px solid wheat;
+background-attachment: fixed;
+}
+
+.con-bubble
+{
+background-image: url(img/bubble.jpg);
+background-repeat: no-repeat;
+background-attachment: fixed;
+position: relative;
+background-size: cover;
+}
+
+.con-select
+{
+background-image: url(./img/selectionSort.gif);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+
+.con-insert
+{
+background-image: url(./img/ins.png);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+
+.con-merge
+{
+background-image: url(./img/merge.png);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+
+.con-quick
+{
+background-image: url(./img/quick.jpg);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+
+.con-cnt
+{
+background-image: url(./img/cnt.jpg);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+
+
+.con-rad
+{
+background-image: url(./img/rad.png);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
